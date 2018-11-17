@@ -17,7 +17,7 @@ void processStacks(int *a,int* &small,int* &large);
 // Declaration of function printSmallValues
 void printSmallValues(const int*a, int* &small);
 // Declaration of function printLargeValues
-void printLargeValues(const int*a, int* &large);
+void printLargeValues(const int* end, int* &large); 
 
 int main()
 {
@@ -36,7 +36,7 @@ int main()
 	// call to function printSmallValues
 	printSmallValues(a, small);
 	// call to function printLargeValues
-	printLargeValues(a, large);
+	printLargeValues(a + cap -1, large);
 	// what else?
 
 	cout << endl;
@@ -75,17 +75,16 @@ void processStacks(int *a, int* &small, int* &large)
 }
 
 // Definition of function printSmallValues
-void printSmallValues(const int*a, int* &small)
+void printSmallValues(int* a, int* &small)
 {
 	cout << "Stack with small values (top): ";
-	for (int* i = small; i != nullptr; i--)
+	for (int* i = small; i =a; i--)
 	{
 		cout << *i << " ";
 	}
-	
 }
 // Definition of function printLargeValues
-void printLargeValues(const int*a, int* &large)
+void printLargeValues(const int* end, int* &large)
 {
 	cout << "Stack with large values (top): ";
 	for (int* i = large; i != nullptr; i++)
